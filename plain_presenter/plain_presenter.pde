@@ -22,7 +22,7 @@ void setup() {
 }
 
 void draw() {
-  input_img = loadImage("/Users/sassi/Desktop/faces/shot_"+lastImageNo+".tif");
+  input_img = loadImage("/Volumes/Macintosh_HD/Users/sassi/Desktop/faces/shot_"+lastImageNo+".tif");
   if (input_img == null) {
     try {
       Thread.sleep(2000);
