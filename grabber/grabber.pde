@@ -7,12 +7,12 @@ Capture video;
 int threshold = 35;
 PImage result;
 PImage img;
-int roi_x = 90;
+int roi_x = 120;
 int roi_y = 0;
 int roi_width = 480;
 int roi_height = 400;
 int det_thresh = 70;
-int det_mae_thresh = 30;
+int det_mae_thresh = 40;
 int img_no = 0;
 
 int[][] h_kernel = { { 1, 2, 1 },
@@ -113,13 +113,13 @@ for (int y = 1; y < img.height-1; y++) { // Skip top and bottom edges
 //  println("Lesser max: "+ max);
 //  oldMax = 0;
 //  max = 0;
-  result.filter(DILATE);
+  // result.filter(DILATE);
   floodFill(new Vec2D(roi_x+5, roi_y+5), 0xFFFF0000, 0xFF000000, result); 
   if(do_shot(result, 0xFFFF0000)) {
     println("SHOT!!! ");
     result.updatePixels();
     image(result, 0, 0);
-    save("shot_"+ img_no++ +".tif");
+    save("/Volumes/Macintosh_HD/Users/sassi/Desktop/pop-art/shot_"+ img_no++ +".tif");
   }
   
  

@@ -1,18 +1,21 @@
 import hypermedia.video.*;
+import fullscreen.*;
 
 PImage input_img;
 PImage face;
 PImage output_img;
+
+FullScreen fs;
 	
 int lastImageNo = 0;
 // region to copy from input image
-int x = 100, y = 100, x2 = 300, y2 = 300;
+int x = 200, y = 100, x2 = 400, y2 = 300;
 int thumb_width = x2 - x;
 int thumb_height = y2 - y;
-int num_of_snapshots_x = 3; 
+int num_of_snapshots_x = 4; 
 int num_of_snapshots_y = 3;
-int border_x = 10;
-int border_y = 10;
+int border_x = 0;
+int border_y = 0;
 
 int[][] palettes = new int[][] {{0xFEF152, 0x2C3C94, 0x76C056},
                                 {0x00AFEA,0xF1008C,0xFEF152},
@@ -39,11 +42,12 @@ void setup() {
   face = createImage(thumb_width, thumb_height, ARGB);
   opencv.allocate(thumb_width, thumb_height);
   frameRate(0.5);
-  
+  fs = new FullScreen(this);
+  fs.setShortcutsEnabled(true);
 }
 
 void draw() {
-  input_img = loadImage("/Volumes/Macintosh_HD/Users/sassi/Desktop/faces/shot_"+lastImageNo+".tif");
+  input_img = loadImage("/Volumes/Macintosh_HD/Users/sassi/Desktop/pop-art/shot_"+lastImageNo+".tif");
   if (input_img == null) {
     try {
       Thread.sleep(2000);
@@ -87,6 +91,8 @@ void keyPressed() {
     case ' ': break;
     case '+': break;
     case '-': break;
+    case 'f': fs.enter(); break;
+    case 'n': fs.leave(); break;
   }
 }
 

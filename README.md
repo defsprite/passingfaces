@@ -1,5 +1,5 @@
-sidefacegrabber
-===============
+passingfaces
+============
 
 
 Small collection of super-hacky, mercilessly stolen & deranged processing sketches. Consists of two parts: 
